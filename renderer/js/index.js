@@ -623,7 +623,6 @@ new Vue({
         },
         searchTableText() {
             if (this.tableFilter.tableSearchColumn && this.tableFilter.tableSearchText.trim()) {
-
                 let tableSearchText = this.tableFilter.tableSearchText.trim()
                 if (!isNaN(tableSearchText)) {
                     this.tableWhere = this.tableFilter.tableSearchColumn + " = " + tableSearchText

@@ -149,18 +149,18 @@ module.exports = {
     timeWhere(primaryKey, where, startTime, endTime) {
         where = where || ''
         if (where) {
-            where += startTime ? ` and ${primaryKey} > '${startTime}' ` : ''
+            where += startTime ? ` and ${primaryKey} > ${startTime} ` : ''
             if (where) {
-                where += endTime ? ` and ${primaryKey} < '${endTime}' ` : ''
+                where += endTime ? ` and ${primaryKey} < ${endTime} ` : ''
             } else {
-                where += endTime ? `${primaryKey} < '${endTime}' ` : ''
+                where += endTime ? `${primaryKey} < ${endTime} ` : ''
             }
         } else {
-            where += startTime ? `${primaryKey} > '${startTime}' ` : ''
+            where += startTime ? `${primaryKey} > ${startTime} ` : ''
             if (where) {
-                where += endTime ? ` and ${primaryKey} < '${endTime}' ` : ''
+                where += endTime ? ` and ${primaryKey} < ${endTime} ` : ''
             } else {
-                where += endTime ? `${primaryKey} < '${endTime}' ` : ''
+                where += endTime ? `${primaryKey} < ${endTime} ` : ''
             }
         }
         return where
@@ -173,9 +173,15 @@ module.exports = {
             let primaryKey = 'ts'
             if (res.res && res.data.length > 0) {
                 //获取第一项，时间戳
-                primaryKey = res.data[0].Field
+                primaryKey = res.data[0].field
             } else {
                 return {'res': false, 'msg': 'distable error', 'code': 99}
+            }
+            if (startTime) {
+                startTime = new Date(startTime).getTime();
+            }
+            if (endTime) {
+                endTime = new Date(endTime).getTime();
             }
 
             //组装where子句  //TODO

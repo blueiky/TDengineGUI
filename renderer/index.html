@@ -444,9 +444,8 @@
                         </span>
                                 </el-dialog>
                                 <!-- 表数据 -->
-                                <el-row class="surperTSearchRow">
-                                    <el-col :span="3" class="dataPackerLabel">时间范围:</el-col>
-                                    <el-col :span="13">
+                                <el-row class="surperTSearchRow" :gutter="12">
+                                    <el-col :span="8">
                                         <div class="datePickerWrapper">
                                             <el-date-picker
                                                     @change="selectTData(false, true)"
@@ -462,20 +461,20 @@
                                             </el-date-picker>
                                         </div>
                                     </el-col>
-                                    <!-- <el-col :span="15">
+                                    <el-col :span="11">
                                       <el-input v-model="tableFilter.tableSearchText" class="input-with-select" size="small">
                                         <el-select v-model="tableFilter.tableSearchColumn" slot="prepend" placeholder="请选择">
                                           <el-option v-for="(label, index) in this.tableLabelItems" :label="label" :value="label" :key="index"></el-option>
                                         </el-select>
                                         <el-button @click="searchTableText" slot="append" icon="el-icon-search" size="small" class="surperTSearchBtn"></el-button>
                                       </el-input>
-                                    </el-col> -->
-                                    <el-col :span="4" class="freshDataBtn">
+                                    </el-col>
+                                    <el-col :span="1.5" class="freshDataBtn">
                                         <el-button @click="openTableFilterD" size="small" style="width: 100%"
                                                    icon="el-icon-setting">筛选条件
                                         </el-button>
                                     </el-col>
-                                    <el-col :span="4" class="freshDataBtn">
+                                    <el-col :span="1.5" class="freshDataBtn">
                                         <el-button @click="selectTData(false, false)" size="small" style="width: 100%"
                                                    icon="el-icon-refresh">数据刷新
                                         </el-button>
